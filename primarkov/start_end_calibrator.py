@@ -289,12 +289,12 @@ class StartEndCalibrator:
         return distribution_v
 
     def distribution_optimization_torch(self):
-        distribution = Variable(torch.randn([self.non_zero_start_indices.size, self.non_zero_end_indices.size]))
+        distribution = cp.Variable(torch.randn([self.non_zero_start_indices.size, self.non_zero_end_indices.size]))
         distribution = torch.abs(distribution)
         distribution = distribution / distribution.sum() * self.total_trajectory_number
         distribution.requires_grad = True
         while self.break_constraints(distribution):
-            distribution = Variable(torch.randn([self.non_zero_start_indices.size, self.non_zero_end_indices.size]))
+            distribution = cp.Variable(torch.randn([self.non_zero_start_indices.size, self.non_zero_end_indices.size]))
             distribution = torch.abs(distribution)
             distribution = distribution / distribution.sum() * self.total_trajectory_number
             distribution.requires_grad = True

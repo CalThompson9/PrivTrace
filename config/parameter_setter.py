@@ -14,7 +14,7 @@ class ParSetter:
         parser.add_argument('--subdividing_inner_parameter', type=float, default=200)
         parser.add_argument('--total_epsilon', type=float, default=2.0)
         # regularly, partition solution is suggested to be np.array([0.2, 0.52, 0.28]))
-        parser.add_argument('--epsilon_partition', type=np.ndarray, default=np.array([0.2, 0.4, 0.4]))
+        parser.add_argument('--epsilon_partition', type=np.ndarray, default=np.array([0.2, 0.52, 0.28]))
         # this parameter indicates how many trajectories to generate
         parser.add_argument('--trajectory_number_to_generate', type=int, default=-1)
         args = vars(parser.parse_args())
